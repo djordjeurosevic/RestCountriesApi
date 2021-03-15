@@ -1,0 +1,16 @@
+<ng-container *ngIf="countries.length!=0">
+  <div class="container countries-list-container">
+    <cdk-virtual-scroll-viewport [itemSize]="72" class="cdk-viewport">
+      <mat-list>
+        <mat-list-item (click)="onCountryClick(country.alpha3Code)" class="countries-list-item"
+          *cdkVirtualFor="let country of countries">
+          <img matListAvatar [src]="country.flag">
+          <h3 matLine>{{country.name}}</h3>
+          <p matLine>
+            <span> {{country.nativeName}} </span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</ng-container>

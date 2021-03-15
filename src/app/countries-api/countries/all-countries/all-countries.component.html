@@ -1,0 +1,26 @@
+<app-countries-header></app-countries-header>
+<div class="container all-countries-select-form">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field style="width:100%;">
+        <mat-label>Serch by name</mat-label>
+        <input (input)="onInputFilterChanged($event)" matInput type="text">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field style="width:100%;">
+        <mat-select #selectDropdown (selectionChange)="onSelectFilterChanged($event)">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let country of selectCountries" [value]="country.alpha3Code">{{country.name}}</mat-option>
+        </mat-select>
+        <mat-label>Search by Neighbor</mat-label>
+        <button mat-button *ngIf="selectedItem" matSuffix mat-icon-button aria-label="Clear"
+          (click)="onSelectFilterCleared($event)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<app-countries-list [countries]="countries"></app-countries-list>

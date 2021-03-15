@@ -1,0 +1,10 @@
+<app-countries-header></app-countries-header>
+<app-countries-title [title]="title"></app-countries-title>
+<div class="container regions-form">
+  <mat-list>
+    <mat-list-item (click)="onRegionClick(region['code'])" class="regions-list-item" *ngFor="let region of regionList">
+      <h3 matLine>{{region.name}},
+        {{region.code}} </h3>
+    </mat-list-item>
+  </mat-list>
+</div>

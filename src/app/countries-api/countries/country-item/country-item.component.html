@@ -1,0 +1,100 @@
+<app-countries-header></app-countries-header>
+<div *ngIf="country">
+  <div class="container country-form">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+          <div class="col-12">
+            <h1>{{country.name}}</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <span class="country-key">Native name</span> &nbsp; <span
+              class="country-value">{{country.nativeName}}</span>
+          </div>
+          <div class="col-md-4">
+            <span class="country-key">Region</span> &nbsp; <span class="country-value">{{country.region}}</span>
+          </div>
+          <div class="col-md-4">
+            <span class="country-key">Subregion</span> &nbsp; <span class="country-value">{{country.subregion}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <span class="country-key">Capital</span> &nbsp; <span class="country-value">{{country.capital}}</span>
+          </div>
+          <div class="col-md-4">
+            <span class="country-key">Population</span> &nbsp; <span
+              class="country-value">{{country.population | number}}</span>
+          </div>
+          <div class="col-md-4">
+            <span class="country-key">Area</span> &nbsp; <span class="country-value">{{country.area | number}}
+              km<sup>2</sup> </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <img class="img-responsive" [src]="country.flag" />
+      </div>
+
+    </div>
+  </div>
+  <div class="container country-form">
+    <div class="row">
+      <div class="col-md-3">
+        <span class="country-key">Numeric code </span> &nbsp; <span class="country-value">{{country.numericCode}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Top level domain</span> &nbsp; <span
+          class="country-value">{{country.topLevelDomain}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Calling codes</span> &nbsp; <span
+          class="country-value">{{country.callingCodes}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Latitude/Longitude</span> &nbsp; <span
+          class="country-value">{{country.latlng}}</span><span class="glyphicon glyphicon-map-marker"
+          aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <span class="country-key">Gini coefficient</span> &nbsp; <span class="country-value">{{country.gini}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Alpha2 code</span> &nbsp; <span class="country-value">{{country.alpha2Code}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Alpha3 code</span> &nbsp; <span class="country-value">{{country.alpha3Code}}</span>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Demonym</span> &nbsp; <span class="country-value">{{country.demonym}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="container country-form">
+    <div class="row">
+      <div class="col-md-3">
+        <span class="country-key">Languages</span> &nbsp; <div class="country-value"
+          *ngFor="let item of country.languages"><span>{{item.name}}&nbsp;&nbsp;</span></div>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Time zones </span> &nbsp; <div class="country-value"
+          *ngFor="let item of country.timezones"><span>{{item}}&nbsp;&nbsp;</span></div>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Alternative spellings</span> &nbsp; <div class="country-value"
+          *ngFor="let item of country.altSpellings"><span>{{item}}&nbsp;&nbsp;</span></div>
+      </div>
+      <div class="col-md-3">
+        <span class="country-key">Translations</span> &nbsp; <div class="country-value"
+          *ngFor="let item of country.translations| keyvalue"><span>{{item.key}} - {{item.value}}&nbsp;</span></div>
+      </div>
+
+    </div>
+
+  </div>
+  <app-countries-list [countries]="neighborCountries"></app-countries-list>
+</div>
